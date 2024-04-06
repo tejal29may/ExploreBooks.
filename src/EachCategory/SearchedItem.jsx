@@ -3,7 +3,7 @@ import Nav from "../Components/Nav";
 import { useParams } from "react-router-dom";
 import axios from "axios";
 import "./SingleFictionBook.css";
-// import { useSpeechSynthesis } from "react-speech-kit";
+import { useSpeechSynthesis } from "react-speech-kit";
 
 function SearchedItem() {
   const { speak, cancel } = useSpeechSynthesis();
@@ -85,9 +85,9 @@ function SearchedItem() {
               {singleNonFiction.volumeInfo.description}
             </span>
           </div>
-          {/* <button onClick={toggleSpeech} style={{widthz:"40px", borderRadius:"20px"}}>
+          <button onClick={toggleSpeech} style={{widthz:"40px", borderRadius:"20px"}}>
             {isSpeaking ? "Stop Reading" : "Read it Loud"}
-          </button> */}
+          </button>
         </div>
       )}
 

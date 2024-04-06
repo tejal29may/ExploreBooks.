@@ -5,7 +5,7 @@ import { useParams } from "react-router-dom";
 import AllFictions from "../ALLCategories/ViewAllFictions";
 import axios from "axios";
 import "./SingleFictionBook.css";
-// import { useSpeechSynthesis } from "react-speech-kit";
+import { useSpeechSynthesis } from "react-speech-kit";
 
 function FictionBook() {
   const [value, setValue] = useState("");
@@ -82,9 +82,9 @@ function FictionBook() {
             </span>
           </div>
 
-          {/* <button onClick={toggleSpeech} style={{padding:"12px", height:"40px",borderRadius:"30px"}}>
+          <button onClick={toggleSpeech} style={{padding:"12px", height:"40px",borderRadius:"30px"}}>
             {isSpeaking ? "Stop Reading" : "Read it Loud"}
-          </button> */}
+          </button>
         </div>
       )}
 

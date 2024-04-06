@@ -6,7 +6,7 @@ import { useParams } from "react-router-dom";
 import ViewAllBussiness from "../ALLCategories/ViewAllBussiness";
 import axios from "axios";
 import "./SingleFictionBook.css";
-// import { useSpeechSynthesis } from "react-speech-kit";
+import { useSpeechSynthesis } from "react-speech-kit";
 
 function SingleBussiness() {
   const { speak, cancel } = useSpeechSynthesis(); // Destructuring speak and cancel functions from useSpeechSynthesis
@@ -88,9 +88,9 @@ function SingleBussiness() {
               {singleNonFiction.volumeInfo.description}
             </span>
           </div>
-          {/* <button onClick={toggleSpeech} style={{height:"40px", borderRadius:"20px"}}>
+          <button onClick={toggleSpeech} style={{height:"40px", borderRadius:"20px"}}>
             {isSpeaking ? "Stop Reading" : "Read it Loud"}
-          </button> */}
+          </button>
         </div>
       )}
 
