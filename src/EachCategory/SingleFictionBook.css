@@ -1,0 +1,62 @@
+.singleBook{
+    width: 70%;
+    /* height: 500px; */
+    /* border: 2px solid red; */
+    margin: 3% auto;
+    padding: 20px;
+    border-radius: 20px;
+    box-shadow: rgba(182, 100, 100, 0.25) 0px 54px 55px, rgba(239, 108, 108, 0.12) 0px -12px 30px, rgba(200, 95, 95, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
+}
+.singleupper{
+    display: flex;
+    gap: 5%;
+    justify-content: center;
+    width: 100%;
+   
+    align-items: center;
+}
+.singleupper .singleleft img{
+    width: 50%;
+    height: 300px;
+    width: 100%;
+}
+.singleupper .singleright{
+width: 50%;
+}
+h4{
+    font-size: 22px;
+    padding-top: 10px;
+}
+.bookname{
+    color: blueviolet;
+}
+.buttons3{
+    display: flex;
+    margin-top: 3%;
+    justify-content: center;
+    gap: 2%;
+}
+.buttons3 .buy{
+    /* width: 25%; */
+    background-color:#e16120;
+    color: white;
+    border: 3px solid red;
+}
+.buy:hover{
+    background-color: rgb(93, 240, 154);
+    border: 3px solid green;
+}
+.buttons3 a{
+    text-decoration: none;
+    color: white;
+}
+.singlebottom{
+    padding: 10px 30px;
+}
+.singlebottom span{
+    font-size: 18px;
+    line-height: 1.3;
+    margin-top: 3%;
+    font-family: cursive;
+    
+}

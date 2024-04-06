@@ -1,0 +1,138 @@
+/* https://imgix.bustle.com/uploads/image/2024/4/4/704177f2-49af-4978-aba6-5ababefd3093-books-to-read-in-april-2024001.jpeg?w=374&h=374&fit=crop&crop=faces&auto=format%2Ccompress&q=50&dpr=2 */
+
+.nav{
+    width: 100%;
+   
+}
+.circle{
+    /* border: 2px solid yellow; */
+    border-radius: 50%;
+    width: 60px;
+    height: 40px;
+    text-align: center;
+    padding: 10px;
+  
+}
+.circle h6{
+    text-align: center;
+    margin-top: -10%;
+    color: white;
+}
+.nav .upper{
+    width: 100%;
+    height: 60px;
+    
+    background-color:#e76f51 ;
+}
+.nav .lower{
+    width: 100%;
+    height: 400px;
+  
+    background:linear-gradient(rgba(0, 0, 0, .6), rgba(0, 0, 0, .7)), url("https://media.istockphoto.com/id/175397396/photo/books-pattern.jpg?s=1024x1024&w=is&k=20&c=NUKMOclJtVjIs-sMtBplxH3S9SjTSvV__URmkY_lX2w=");
+    background-position: center;
+    background-size: cover;
+}
+.nav .upper{
+    display: flex;
+    justify-content: space-around;
+    justify-content: center;
+    align-items: center;
+    gap: 20%;
+}
+.mid{
+    margin-right: 10%;
+}
+.mid h3{
+    color: white;
+    font-size: 18px;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+}
+.nav .upper .left{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 4%;
+}
+.nav .upper .left p{
+    font-size: 22px;
+    color: white;
+    font-weight: 700;
+}
+.nav .upper svg{
+    width: 40px;
+    height: 40px;
+    
+}
+
+.nav .lower .content{
+    width: 700px;
+    /* height: 230px; */
+    
+    margin: 0px auto;
+    padding-top: 8%;
+    /* padding: 8% 8%; */
+    text-align: center;
+ 
+}
+.nav .lower .content .inputField{
+    display: flex;
+    gap: 0%;
+    justify-content: center;
+    align-items: center;
+}
+.nav .lower .content .inputField input{
+    width: 300px;
+    height: 55px;
+    border-radius: 2.8rem;
+    text-align: center;
+    border: none;
+    margin-left: 20%;
+}
+.nav .lower .content .inputField  button{
+    background-color: #e16120;
+    border-radius: 50%;
+    height: 55px;
+    /* position: relative; */
+    width: 55px;
+    border: 2px solid white;
+}
+.lower .content h1{
+    font-size: 2em;
+    margin-block-start: 0.67em;
+    margin-block-end: 0.67em;
+    margin-inline-start: 0px;
+    margin-inline-end: 0px;
+    font-weight: bold;
+    color: white;
+}
+.lower .content p{
+    margin-block-start: 1em;
+    margin-block-end: 1em;
+    margin-inline-start: 0px;
+    margin-inline-end: 0px;
+    color: white;
+    font-size: 18px;
+    margin-bottom: 16px;
+    margin-top: 16px;
+}
+
+.cardsssss{
+    width: 100%;
+    /* border: 2px solid red; */
+    display: flex;
+    justify-content: center;
+    margin-top: 5%;
+    padding: 10px;
+    gap: 3%;
+    
+}
+.cardsssss .card{
+    width: 250px;
+    height: 300px;
+}
+.cardsssss .card h3{
+    color: rgb(215, 54, 215);
+    text-align: center;
+    font-size: 20px;
+}
