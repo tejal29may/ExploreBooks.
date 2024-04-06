@@ -4,7 +4,7 @@ import { useParams } from "react-router-dom";
 import ViewAllMystery from "../ALLCategories/ViewAllMystery";
 import axios from "axios";
 import "./SingleFictionBook.css";
-import { useSpeechSynthesis } from "react-speech-kit";
+// import { useSpeechSynthesis } from "react-speech-kit";
 
 function SingleMystery() {
   const { speak, cancel } = useSpeechSynthesis();
@@ -86,9 +86,9 @@ function SingleMystery() {
               {singleNonFiction.volumeInfo.description}
             </span>
           </div>
-          <button onClick={toggleSpeech} style={{height:"40px", borderRadius:"20px"}}>
+          {/* <button onClick={toggleSpeech} style={{height:"40px", borderRadius:"20px"}}>
             {isSpeaking ? "Stop Reading" : "Read it Loud"}
-          </button>
+          </button> */}
         </div>
       )}
 
