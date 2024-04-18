@@ -56,7 +56,7 @@ function AllFictions() {
                     <div className="card" key={index}>
                     
                      
-                      <img src={ele.volumeInfo.imageLinks.thumbnail} alt="" />
+                      <img src={ele?.volumeInfo?.imageLinks?.thumbnail} alt="" />
   
                       <h3 style={{fontSize:"16px"}}>{ele.volumeInfo.title}</h3>
                      
