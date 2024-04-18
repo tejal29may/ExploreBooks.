@@ -60,3 +60,24 @@ h4{
     font-family: cursive;
     
 }
+
+@media screen and (max-width:520px) {
+    .singleBook{
+        width: 100%;
+        padding: 0;
+        margin-bottom: 5%;
+        padding-bottom: 10%;
+    }
+    .singleBook .singleupper{
+        display: flex;
+        flex-direction: column;
+        padding: 0;
+       
+    }
+    .singleBook .singleupper .singleright{
+        width: 100%;
+    }
+    .singleright .buy{
+        height: 50px;
+    }
+}

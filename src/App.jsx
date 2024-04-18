@@ -1,8 +1,8 @@
 import Home from "./Screens/Home";
 import "./App.css";
-import { Route, Routes, BrowserRouter ,useLocation} from "react-router-dom";
+import { Route, Routes, BrowserRouter } from "react-router-dom";
 import SubCategory from "./Components/SubCategory.jsx";
-import SingleItem from "./Components/SingleItem";
+// import SingleItem from "./Components/SingleItem";
 // import Auth from "./Screens/Auth";
 import SignIn from "./Components/SignIn";
 import AllFiction from "./ALLCategories/ViewAllFictions";
@@ -33,7 +33,8 @@ function App() {
   const[categoryData,setcategorydata]=useState({});
   const[name,setName]=useState("");
   const[products, setProducts]=useState([])
-
+  
+ 
  
 
   return (
@@ -48,7 +49,7 @@ function App() {
            <Route path="/Home" element={<Home />} />
          
           <Route path="/SubCategory" element={<SubCategory />} />
-          <Route path="/SingleItem/:itemId" element={<SingleItem />} />
+          {/* <Route path="/SingleItem/:itemId" element={<SingleItem />} /> */}
           <Route path="/AllFiction" element={<AllFiction />} />
           <Route path="/AllNonFictions" element={<AllNonFictions />} />
           <Route path="/ViewAllTravel" element={<ViewAllTravel />} />

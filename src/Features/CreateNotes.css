@@ -197,3 +197,18 @@
   }
   
   
+
+  @media screen and (max-width:"480"){
+    .notesmain{
+      display: flex;
+      flex-direction: column;
+    }
+    .leftBot{
+      
+      width: 300px;
+    }
+    .mainSection{
+    
+      width: 300px;
+    }
+  }

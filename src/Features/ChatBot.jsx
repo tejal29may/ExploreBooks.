@@ -6,18 +6,19 @@ import { IoSendSharp } from "react-icons/io5";
 import React, { useState } from "react";
 import axios from "axios";
 
-import { useContext } from "react";
+import { useContext,useEffect } from "react";
 import { Suspense, lazy } from "react";
 import { Navigate, useNavigate } from "react-router-dom";
 
 function ChatBot() {
   const [ans, setAns] = useState([]);
   const VITE_GEMINI_KEY = import.meta.env.VITE_GEMINI_KEY;
-
+  
   const [questions, setquestions] = useState("");
   const [loading, setLoading] = useState(false);
   const navigate = useNavigate();
 
+ 
   async function generateAns() {
     setLoading(true);
     console.log("Loading...");
@@ -48,7 +49,7 @@ function ChatBot() {
       <div className="bots">
         <div className="leftBot">
           <span><b style={{color:"brown", fontSize:"30px"}}>Welcome to our book chatbot! </b><br /><br /> Simply type in your interests or questions, and our chatbot will provide personalized book recommendations, genre exploration, author details, and more. With our chatbot, finding your next favorite book is fast, convenient, and tailored just for you. Start chatting now to embark on your literary adventure!</span>
-          <img src="/public/WhatsApp_Image_2021-10-10_at_12.08.11_PM-removebg-preview.png" alt="" />
+          <img src="https://www.chatinbox.io/wp-content/uploads/Chatbot-animation.gif" alt="" />
         </div>
         <div className="mainSection">
           <div className="new1">

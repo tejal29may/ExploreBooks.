@@ -402,8 +402,9 @@
   width: 100%;
   justify-content: center;
   align-items: center;
-  background-color: #d4def2;
+  background-color:white;
   padding: 40px;
+  
 
   
 }
@@ -431,4 +432,16 @@
   font-family: cursive;
   color: blue;
   
+}
+
+
+@media screen and (max-width:"480px") {
+  .bots{
+    display: flex;
+    flex-direction: column;
+  }
+  .bots .leftBot{
+    display: flex;
+    flex-direction: column;
+  }
 }

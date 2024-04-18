@@ -4,19 +4,23 @@ import { useParams } from "react-router-dom";
 import axios from "axios";
 import "./SingleFictionBook.css";
 import { useSpeechSynthesis } from "react-speech-kit";
+import Loader from "../Components/Loader";
 
 function SearchedItem() {
   const { speak, cancel } = useSpeechSynthesis();
   const param = useParams();
   const [singleNonFiction, setSingleNonFiction] = useState(null);
   const [isSpeaking, setIsSpeaking] = useState(false);
+  const[loading,setLoading]=useState(true);
 
   async function fetchData() {
     try {
+      setLoading(true);
       const response = await axios(
         `https://www.googleapis.com/books/v1/volumes/${param.id}`
       );
       setSingleNonFiction(response.data);
+      setLoading(false);
     } catch (error) {
       console.error("Error fetching data:", error);
     }
@@ -37,7 +41,8 @@ function SearchedItem() {
 
   return (
     <>
-      {singleNonFiction && (
+    {
+      loading?<Loader/>:(
         <div className="singleBook">
           <div className="singleupper">
             <div className="singleleft">
@@ -90,7 +95,9 @@ function SearchedItem() {
           </button>
         </div>
       )}
-
+    
+      
+  
     
     </>
   );

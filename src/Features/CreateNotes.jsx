@@ -1,11 +1,19 @@
 import React, { useRef, useState, useEffect } from "react";
 import "./CreateNotes.css";
+import Tooltip from "@mui/material/Tooltip";
 
 function CreateNotes() {
+  const [isGrammarlyInstalled, setIsGrammarlyInstalled] = useState(false);
+
   const [bgColor, setBgColor] = useState("white");
   const [title, setTitle] = useState("");
   const [contentt, setContentt] = useState("");
   const [content, setContent] = useState([]);
+
+  useEffect(() => {
+    // Check if the Grammarly extension is installed
+    setIsGrammarlyInstalled(!!window.__gCrWeb);
+  }, []);
 
   useEffect(() => {
     let result = localStorage.getItem("MyNotes");
@@ -18,7 +26,7 @@ function CreateNotes() {
   const addNotes = () => {
     if (title.trim() === "") {
       //   toast.error('Please enter a valid title.');
-      alert("invalid");
+      alert("Enter a proper title !");
       return;
     } else {
       const newData = {
@@ -35,17 +43,29 @@ function CreateNotes() {
     <>
       <div className="notesmain">
         <div className="leftnotes">
-          <span><b style={{color:"brown", fontSize:"30px"}}>Welcome to our note-taking feature!</b><br /><br /> Easily jot down thoughts, ideas, or favorite quotes while exploring books on our website. Edit or delete notes anytime to stay organized and enhance your reading experience. Start taking notes today to engage with books on a deeper level!</span>
-         <img src="https://i.pinimg.com/originals/f4/35/28/f435281885f879de2b207fbe9f5d30d2.jpg" alt="" />
+          <span>
+            <b style={{ color: "brown", fontSize: "30px" }}>
+              Welcome to our note-taking feature!
+            </b>
+            <br />
+            <br /> Easily jot down thoughts, ideas, or favorite quotes while
+            exploring books on our website. Edit or delete notes anytime to stay
+            organized and enhance your reading experience. Start taking notes
+            today to engage with books on a deeper level!
+          </span>
+          <img
+            src="https://i.pinimg.com/originals/f4/35/28/f435281885f879de2b207fbe9f5d30d2.jpg"
+            alt=""
+          />
         </div>
         <div className="main">
-          {/* <marquee behavior="" direction="down"> */}
-          <h3
-            style={{ textAlign: "center", fontSize: "30px", marginTop: "7%" }}
-          >
-            Create Yout Own Notes 📝
-          </h3>
-          {/* </marquee> */}
+          <Tooltip title="Grammarly extension installed? Enjoy correct sentence suggestions!">
+            <h3
+              style={{ textAlign: "center", fontSize: "30px", marginTop: "7%" }}
+            >
+              Create Yout Own Notes 📝
+            </h3>
+          </Tooltip>
 
           <div className="upper">
             <div className="sect">
@@ -73,7 +93,7 @@ function CreateNotes() {
             </div>
             <br />
             <div className="button1">
-              <label for="color" style={{ color: "black" }}>
+              <label for="color" style={{ color: "black", fontSize:"20px"}}>
                 Choose Color
               </label>
               <input
@@ -84,7 +104,7 @@ function CreateNotes() {
                   setBgColor(e.target.value);
                 }}
               />
-              <button className="button-75" onClick={addNotes}>
+              <button className="button-75" onClick={addNotes} style={{width:"160px"}}>
                 Add A Note
               </button>
             </div>
