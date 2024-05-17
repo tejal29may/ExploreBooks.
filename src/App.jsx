@@ -29,18 +29,19 @@ import Footer from "./Components/Footer";
 
 
 function App() {
-  const [user, setUser] = useState({});
-  const[categoryData,setcategorydata]=useState({});
-  const[name,setName]=useState("");
-  const[products, setProducts]=useState([])
+    const [user, setUser] = useState({});
+    const[categoryData,setcategorydata]=useState({});
+    const[name,setName]=useState("");
+    const[products, setProducts]=useState([])
+    const [savedBooks, setSavedBooks] = useState([]);
   
- 
+
  
 
   return (
     <>
 
-    <userContext.Provider value={{user,setUser,categoryData,setcategorydata,name,setName,products, setProducts}}>
+    <userContext.Provider value={{user,setUser,categoryData,setcategorydata,name,setName,products, setProducts,savedBooks,setSavedBooks}}>
       <BrowserRouter>
       <Nav/>
         <Routes>

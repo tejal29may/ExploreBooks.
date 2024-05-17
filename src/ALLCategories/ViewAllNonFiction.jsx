@@ -57,7 +57,7 @@ const[loading,setLoading]=useState(true)
                 <NavLink   to={`/SingleNonFiction/${ele.id}`}>
                 <div className="card" key={index}>
                 
-                  <img src={ele.volumeInfo.imageLinks.thumbnail} alt="" />
+                  <img src={ele?.volumeInfo?.imageLinks?.thumbnail} alt="" />
   
                   <h3>{ele.volumeInfo.title}</h3>
                 

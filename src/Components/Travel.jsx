@@ -22,16 +22,22 @@ function Travel() {
   }, []);
   return (
     <>
-      <div className="content" style={{display:"flex", justifyContent:"space-between"} }>
-        <div className="head" style={{display:"flex", flexDirection:"column"}}>
-        <p>Travel</p>
-      <hr />
+      <div
+        className="content"
+        style={{ display: "flex", justifyContent: "space-between" }}
+      >
+        <div
+          className="head"
+          style={{ display: "flex", flexDirection: "column" }}
+        >
+          <p>Travel</p>
+          <hr />
         </div>
-   
+
         <NavLink to="/ViewAllTravel">
           <h3>View All</h3>
         </NavLink>
-    </div>
+      </div>
       <div className="cards">
         {mystery.map((ele, index, array) => {
           return (

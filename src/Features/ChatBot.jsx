@@ -14,9 +14,10 @@ function ChatBot() {
   const [ans, setAns] = useState([]);
   const VITE_GEMINI_KEY = import.meta.env.VITE_GEMINI_KEY;
   
-  const [questions, setquestions] = useState("");
+  const [questions, setquestions] = useState();
   const [loading, setLoading] = useState(false);
   const navigate = useNavigate();
+  console.log("questions",questions);
 
  
   async function generateAns() {

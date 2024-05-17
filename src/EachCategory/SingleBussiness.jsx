@@ -1,19 +1,20 @@
 
 
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useContext } from "react";
 import Nav from "../Components/Nav";
 import { useParams } from "react-router-dom";
 import ViewAllBussiness from "../ALLCategories/ViewAllBussiness";
 import axios from "axios";
 import "./SingleFictionBook.css";
 import { useSpeechSynthesis } from "react-speech-kit";
+import userContext from "../Components/UserContext";
 
 function SingleBussiness() {
   const { speak, cancel } = useSpeechSynthesis(); // Destructuring speak and cancel functions from useSpeechSynthesis
   const param = useParams();
   const [singleNonFiction, setSingleNonFiction] = useState(null);
   const [isSpeaking, setIsSpeaking] = useState(false); // New state variable to track speech status
-
+  const{savedBooks,setSavedBooks}=useContext(userContext)
   async function fetchData() {
     try {
       const response = await axios(
@@ -38,6 +39,13 @@ function SingleBussiness() {
     setIsSpeaking(!isSpeaking); // Toggle isSpeaking state
   };
 
+  const saveBook = () => {
+    if (singleNonFiction) {
+      setSavedBooks(prevSavedBooks => [...prevSavedBooks, singleNonFiction]);
+      alert("book saved")
+    }
+  };
+
   return (
     <>
       {singleNonFiction && (
@@ -45,7 +53,7 @@ function SingleBussiness() {
           <div className="singleupper">
             <div className="singleleft">
               <img
-                src={singleNonFiction.volumeInfo.imageLinks.thumbnail}
+                src={singleNonFiction?.volumeInfo?.imageLinks?.thumbnail}
                 alt=""
               />
             </div>
@@ -76,6 +84,9 @@ function SingleBussiness() {
                     View Preview
                   </a>
                 </button>
+                <button onClick={()=>{
+                  saveBook()
+                }}>Save</button>
               </div>
             </div>
           </div>

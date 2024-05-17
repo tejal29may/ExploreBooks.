@@ -1,4 +1,4 @@
-// Translator.js
+
 import React, { useState } from "react";
 import "./Translator.css";
 import languageList from "./language.json";
@@ -62,7 +62,7 @@ export default function Translator() {
 
 <div className="maintranslate">
     <div className="lefttranslate">
-      <span><b style={{color:"brown", fontSize:"30px"}}>Welcome to our Book translator feature!</b><br /><br /> With our tool, you can effortlessly translate movie titles, descriptions, and reviews between any languages. Break language barriers, explore global cinema, and connect with international audiences seamlessly. Enhance your movie-watching experience with our movie translator!</span>
+      <span><b style={{color:"brown", fontSize:"30px"}}>Welcome to our Book translator feature!</b><br /><br /> With our tool, you can effortlessly translate book titles, descriptions, and reviews between any languages. Break language barriers, explore global literature, and connect with international readers seamlessly. Enhance your reading experience with our book translator!</span>
         <img src="https://cdn3d.iconscout.com/3d/premium/thumb/translate-9176634-7475583.png" alt="" />
     </div>
 
@@ -132,7 +132,7 @@ export default function Translator() {
       </div>
       <div className="row3">
         <button className="btn" onClick={handleTranslate} style={{paddingBottom:"2%"}}>
-          <i className="fa fa-spinner fa-spin"></i>
+          <i className="fa fa-spinner fa-spin">Translating...</i>
           <span className="translate" >Translate</span>
         </button>
       </div>

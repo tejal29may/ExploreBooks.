@@ -5,13 +5,15 @@ import ViewAllMystery from "../ALLCategories/ViewAllMystery";
 import axios from "axios";
 import "./SingleFictionBook.css";
 import { useSpeechSynthesis } from "react-speech-kit";
+import { useContext } from "react";
+import userContext from "../Components/UserContext";
 
 function SingleMystery() {
   const { speak, cancel } = useSpeechSynthesis();
   const param = useParams();
   const [singleNonFiction, setSingleNonFiction] = useState(null);
   const [isSpeaking, setIsSpeaking] = useState(false);
-
+  const{savedBooks,setSavedBooks}=useContext(userContext)
   async function fetchData() {
     try {
       const response = await axios(
@@ -35,7 +37,12 @@ function SingleMystery() {
     }
     setIsSpeaking(!isSpeaking);
   };
-
+  const saveBook = () => {
+    if (singleNonFiction) {
+      setSavedBooks(prevSavedBooks => [...prevSavedBooks, singleNonFiction]);
+      alert("book saved")
+    }
+  };
   return (
     <>
       {singleNonFiction && (
@@ -43,7 +50,7 @@ function SingleMystery() {
           <div className="singleupper">
             <div className="singleleft">
               <img
-                src={singleNonFiction.volumeInfo.imageLinks.thumbnail}
+                src={singleNonFiction?.volumeInfo?.imageLinks?.thumbnail}
                 alt=""
               />
             </div>
@@ -74,6 +81,9 @@ function SingleMystery() {
                     View Preview
                   </a>
                 </button>
+                <button onClick={()=>{
+                  saveBook()
+                }}>Save</button>
               </div>
             </div>
           </div>
@@ -89,6 +99,7 @@ function SingleMystery() {
           <button onClick={toggleSpeech} style={{height:"40px", borderRadius:"20px"}}>
             {isSpeaking ? "Stop Reading" : "Read it Loud"}
           </button>
+         
         </div>
       )}
 

@@ -1,19 +1,25 @@
 
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useContext } from "react";
 import Nav from "../Components/Nav";
 import { useParams } from "react-router-dom";
 import AllFictions from "../ALLCategories/ViewAllFictions";
 import axios from "axios";
 import "./SingleFictionBook.css";
 import { useSpeechSynthesis } from "react-speech-kit";
+import userContext from "../Components/UserContext";
+
 
 function FictionBook() {
+
   const [value, setValue] = useState("");
   const { speak, cancel } = useSpeechSynthesis(); // Destructuring cancel function from useSpeechSynthesis
 
   const param = useParams();
   const [singleBook, setSingleBook] = useState(null);
   const [isSpeaking, setIsSpeaking] = useState(false); // New state variable
+
+
+  const{savedBooks,setSavedBooks}=useContext(userContext)
 
   async function fetchData() {
     try {
@@ -33,12 +39,19 @@ function FictionBook() {
 
   const toggleSpeech = () => {
     if (isSpeaking) {
-      cancel(); // Stop speech if already speaking
+      cancel(); 
     } else {
-      speak({ text: value }); // Start speech
+      speak({ text: value }); 
     }
-    setIsSpeaking(!isSpeaking); // Toggle isSpeaking state
+    setIsSpeaking(!isSpeaking); 
   };
+  const saveBook = () => {
+    if (singleBook) {
+      setSavedBooks(prevSavedBooks => [...prevSavedBooks, singleBook]);
+      alert("book saved")
+    }
+  };
+  console.log("books saved are ",savedBooks);
 
   return (
     <>
@@ -46,29 +59,33 @@ function FictionBook() {
         <div className="singleBook">
           <div className="singleupper">
             <div className="singleleft">
-              <img src={singleBook.volumeInfo.imageLinks.thumbnail} alt="" />
+              <img src={singleBook?.volumeInfo?.imageLinks?.thumbnail} alt="" />
             </div>
             <div className="singleright">
-              <h1 className="bookname">{singleBook.volumeInfo.title}</h1>
+              <h1 className="bookname">{singleBook?.volumeInfo?.title}</h1>
               <h4 className="Author">
-                Category :{singleBook.volumeInfo.categories[0]}{" "}
+                Category :{singleBook?.volumeInfo?.categories[0]}{" "}
               </h4>
               <h4 className="Author">
-                Author :{singleBook.volumeInfo.authors[0]}{" "}
+                Author :{singleBook?.volumeInfo?.authors[0]}{" "}
               </h4>
-              <h4>Publishers: {singleBook.volumeInfo.publisher}</h4>
+              <h4>Publishers: {singleBook?.volumeInfo?.publisher}</h4>
 
-              <h4>Published Date : {singleBook.volumeInfo.publishedDate} </h4>
+              <h4>Published Date : {singleBook?.volumeInfo?.publishedDate} </h4>
               <div className="buttons3">
                 <button className="buy">
-                  <a href={singleBook.saleInfo.buyLink}>Buy Now</a>
+                  <a href={singleBook?.saleInfo?.buyLink}>Buy Now</a>
                 </button>
                 <button className="buy">
-                  <a href={singleBook.accessInfo.pdf.acsTokenLink}>Read Here</a>
+                  <a href={singleBook?.accessInfo?.pdf?.acsTokenLink}>Read Here</a>
                 </button>
                 <button className="buy">
-                  <a href={singleBook.volumeInfo.previewLink}>View Preview</a>
+                  <a href={singleBook?.volumeInfo?.previewLink}>View Preview</a>
                 </button>
+                <button onClick={()=>{
+                  saveBook()
+                }}>Save</button>
+              
               </div>
             </div>
           </div>

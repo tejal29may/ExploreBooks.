@@ -1,18 +1,19 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useContext } from "react";
 import Nav from "../Components/Nav";
 import { useParams } from "react-router-dom";
 import axios from "axios";
 import "./SingleFictionBook.css";
 import { useSpeechSynthesis } from "react-speech-kit";
 import Loader from "../Components/Loader";
+import userContext from "../Components/UserContext";
 
 function SearchedItem() {
   const { speak, cancel } = useSpeechSynthesis();
   const param = useParams();
   const [singleNonFiction, setSingleNonFiction] = useState(null);
   const [isSpeaking, setIsSpeaking] = useState(false);
-  const[loading,setLoading]=useState(true);
-
+  const [loading, setLoading] = useState(true);
+  const { savedBooks, setSavedBooks } = useContext(userContext);
   async function fetchData() {
     try {
       setLoading(true);
@@ -38,45 +39,64 @@ function SearchedItem() {
     }
     setIsSpeaking(!isSpeaking);
   };
-
+  const saveBook = () => {
+    if (singleNonFiction) {
+      setSavedBooks((prevSavedBooks) => [...prevSavedBooks, singleNonFiction]);
+      alert("book saved");
+    }
+  };
   return (
     <>
-    {
-      loading?<Loader/>:(
+      {loading ? (
+        <Loader />
+      ) : (
         <div className="singleBook">
           <div className="singleupper">
             <div className="singleleft">
               <img
-                src={singleNonFiction.volumeInfo.imageLinks.thumbnail}
+                src={singleNonFiction?.volumeInfo?.imageLinks?.thumbnail}
                 alt=""
               />
             </div>
             <div className="singleright">
-              <h1 className="bookname">{singleNonFiction.volumeInfo.title}</h1>
+              <h1 className="bookname">
+                {singleNonFiction?.volumeInfo?.title}
+              </h1>
               <h4 className="Author">
-                Category :{singleNonFiction.volumeInfo.categories[0]}{" "}
+                Category:{" "}
+                {singleNonFiction?.volumeInfo?.categories?.length > 0
+                  ? singleNonFiction.volumeInfo.categories[0]
+                  : "Category not available"}
               </h4>
+
               <h4 className="Author">
-                Author :{singleNonFiction.volumeInfo.authors[0]}{" "}
+                Author :{singleNonFiction?.volumeInfo?.authors[0]}{" "}
               </h4>
-              <h4>Publishers: {singleNonFiction.volumeInfo.publisher}</h4>
+              <h4>Publishers: {singleNonFiction?.volumeInfo?.publisher}</h4>
 
               <h4>
-                Published Date : {singleNonFiction.volumeInfo.publishedDate}{" "}
+                Published Date : {singleNonFiction?.volumeInfo?.publishedDate}{" "}
               </h4>
               <div className="buttons3">
                 <button className="buy">
-                  <a href={singleNonFiction.saleInfo.buyLink}>Buy Now</a>
+                  <a href={singleNonFiction?.saleInfo?.buyLink}>Buy Now</a>
                 </button>
                 <button className="buy">
-                  <a href={singleNonFiction.accessInfo.pdf.acsTokenLink}>
+                  <a href={singleNonFiction?.accessInfo?.pdf?.acsTokenLink}>
                     Read Here
                   </a>
                 </button>
                 <button className="buy">
-                  <a href={singleNonFiction.volumeInfo.previewLink}>
+                  <a href={singleNonFiction?.volumeInfo?.previewLink}>
                     View Preview
                   </a>
+                </button>
+                <button
+                  onClick={() => {
+                    saveBook();
+                  }}
+                >
+                  Save
                 </button>
               </div>
             </div>
@@ -87,18 +107,17 @@ function SearchedItem() {
                 Description: <br />
                 <br />
               </b>{" "}
-              {singleNonFiction.volumeInfo.description}
+              {singleNonFiction?.volumeInfo?.description}
             </span>
           </div>
-          <button onClick={toggleSpeech} style={{widthz:"40px", borderRadius:"20px"}}>
+          <button
+            onClick={toggleSpeech}
+            style={{ widthz: "40px", borderRadius: "20px" }}
+          >
             {isSpeaking ? "Stop Reading" : "Read it Loud"}
           </button>
         </div>
       )}
-    
-      
-  
-    
     </>
   );
 }

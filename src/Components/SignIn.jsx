@@ -5,7 +5,8 @@ import { db } from "../Screens/Firebase";
 import { v4 as uuidv4 } from "uuid";
 
 import { doc, setDoc, getDoc } from "firebase/firestore";
-
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 import "./SignIn.css";
 
 import userContext from "./UserContext";
@@ -38,20 +39,22 @@ function SignIn() {
         password
       );
       console.log(result);
-      alert("User created");
-
+      notify();
+      // alert("User created");
+     
       console.log(result.user.providerData[0].uid);
 
-      await setDoc(doc(db, "users", uuidv4()), {
-        Name: name,
-      });
+      // await setDoc(doc(db, "users", uuidv4()), {
+      //   Name: name,
+      // });
 
       console.log("name setter", name);
-
+     
       await getBlog();
     } catch (err) {
       console.log(err);
-      alert(err.message);
+      // notify2();
+      // alert(err.message);
     }
   }
 
@@ -70,13 +73,25 @@ function SignIn() {
     try {
       const result = await signInWithEmailAndPassword(auth, email, password);
       console.log(result);
+    
       navigate("/Home");
       console.log("home section");
       console.log(user);
     } catch (err) {
       console.log("error", err);
+     
     }
   }
+
+  const notify = () => {
+    toast.success("Successfully registerd!")
+  }
+ 
+ 
+  const notify2=()=>{
+      toast.error("User Already Registered !", {
+     
+  })}
   return (
     <>
       <div class="main2">
@@ -118,6 +133,7 @@ function SignIn() {
             }}
           />
           <button onClick={handle}>Sign up</button>
+          <ToastContainer />
         </div>
 
         <div class="login">

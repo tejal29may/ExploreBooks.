@@ -1,14 +1,23 @@
-
+/* body{
+	background-color: #e0dede;
+	background:linear-gradient(rgba(32, 32, 37, 0.8), rgba(30, 26, 27, 0.8)), url("https://th.bing.com/th/id/OIP.C4YrAJLOtLm6i-u6JwktAwHaEo?rs=1&pid=ImgDetMain");
+	background-repeat: no-repeat;
+	background-position: center;
+	background-size: cover;
+	height: 100vh;
+} */
 .main2{
 	width: 350px;
 	height: 500px;
 	background: red;
 	overflow: hidden;
-	background: url("https://doc-08-2c-docs.googleusercontent.com/docs/securesc/68c90smiglihng9534mvqmq1946dmis5/fo0picsp1nhiucmc0l25s29respgpr4j/1631524275000/03522360960922298374/03522360960922298374/1Sx0jhdpEpnNIydS4rnN4kHSJtU1EyWka?e=view&authuser=0&nonce=gcrocepgbb17m&user=03522360960922298374&hash=tfhgbs86ka6divo3llbvp93mg4csvb38") no-repeat center/ cover;
+	/* background: url("https://th.bing.com/th/id/OIP.n3sAXxDyR0gM6xT1ZwmXdQHaE8?rs=1&pid=ImgDetMain"); */
 	border-radius: 10px;
 	box-shadow: 5px 20px 50px #000;
     margin: 2% auto;
 	background-color: #a47bf0;
+	background-repeat: no-repeat;
+	background-size: cover;
 }
 #chk{
 	display: none;

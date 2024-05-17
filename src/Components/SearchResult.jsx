@@ -20,7 +20,7 @@ function SearchResult() {
               <div className="card" key={index}>
                 
                 <img src={ele?.volumeInfo?.imageLinks?.smallThumbnail} alt="" />
-                <h3>{ele.volumeInfo.title}</h3>
+                <h3>{ele?.volumeInfo?.title}</h3>
                 
                 <h2>{ele?.volumeInfo?.volumeInfo?.categories[0]}</h2>
                
